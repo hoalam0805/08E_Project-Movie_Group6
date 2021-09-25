@@ -1,16 +1,34 @@
 import './App.css';
+import BaiTapTongHop from './BaiTapTongHop/BaiTapTongHop';
+// import CompareObjectArray from './Lodash/CompareObjectArray';
+// import FlattenLodash from './Lodash/FlattenLodash';
+// import Include from './Lodash/Include';
+// import UniqLodash from './Lodash/UniqLodash';
+// import ChunkLodash from './Lodash/ChunkLodash';
+// import FillLosdash from './Lodash/FillLosdash';
+// import SortLodash from './Lodash/SortLodash';
+// import JoinDemo from './Lodash/JoinDemo';
+// import LastFirstLodash from './Lodash/LastFirstLodash';
+// import DemoGrid from './TailWindComponent/DemoGrid';
+// import PaddingMarginDemo from './TailWindComponent/PaddingMarginDemo';
 
 function App() {
   return (
     <div className="App">
-      <div className="container">
-        <div className="shadow-sm ..." >Hello</div>
-        <div className="shadow ..." >Hello</div>
-        <div className="shadow-md ..." >Hello</div>
-        <div className="shadow-lg ..." >Hello</div>
-        <div className="shadow-xl ..." >Hello</div>
-        <div className="shadow-2xl ..." >Hello</div>
-      </div>
+      {/* <DemoGrid/> */}
+      {/* <PaddingMarginDemo/> */}
+
+      {/* <JoinDemo/> */}
+      {/* <LastFirstLodash/> */}
+      {/* <ChunkLodash/> */}
+      {/* <FillLosdash/> */}
+      {/* <SortLodash/> */}
+      {/* <Include/> */}
+      {/* <UniqLodash/> */}
+      {/* <FlattenLodash/> */}
+      {/* <CompareObjectArray/> */}
+
+      <BaiTapTongHop/>
     </div>
   );
 }
