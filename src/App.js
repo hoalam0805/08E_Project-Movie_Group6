@@ -15,20 +15,6 @@ import BaiTapTongHop from './BaiTapTongHop/BaiTapTongHop';
 function App() {
   return (
     <div className="App">
-      {/* <DemoGrid/> */}
-      {/* <PaddingMarginDemo/> */}
-
-      {/* <JoinDemo/> */}
-      {/* <LastFirstLodash/> */}
-      {/* <ChunkLodash/> */}
-      {/* <FillLosdash/> */}
-      {/* <SortLodash/> */}
-      {/* <Include/> */}
-      {/* <UniqLodash/> */}
-      {/* <FlattenLodash/> */}
-      {/* <CompareObjectArray/> */}
-
-      <BaiTapTongHop/>
     </div>
   );
 }
