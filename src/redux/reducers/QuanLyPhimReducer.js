@@ -1,4 +1,4 @@
-import { SET_DANHSACHPHIM } from "../actions/types/DanhSachPhimType";
+import { SET_DANHSACHPHIM, SET_PHIM_SAP_CHIEU, SET_PHIM_DANG_CHIEU } from "../actions/types/DanhSachPhimType";
 
 const stateDefault = {
     arrFilm: [{
@@ -28,14 +28,30 @@ const stateDefault = {
         "hot": false,
         "dangChieu": true,
         "sapChieu": false
-    }]
+    }],
+    dangChieu: true,
+    sapChieu: true,
+    arrFilmDefault: []
 }
 
 export const QuanLyPhimReducer = (state = stateDefault, action) => {
     switch (action.type) {
         case SET_DANHSACHPHIM: {
             state.arrFilm = action.arrFilm;
+            state.arrFilmDefault = state.arrFilm;
             return { ...state }
+        }
+
+        case SET_PHIM_DANG_CHIEU: {
+            state.dangChieu = !state.dangChieu;
+            state.arrFilm = state.arrFilmDefault.filter(film => film.dangChieu === state.dangChieu);
+            return {...state};
+        }
+
+        case SET_PHIM_SAP_CHIEU: {
+            state.sapChieu = !state.sapChieu;
+            state.arrFilm = state.arrFilmDefault.filter(film => film.sapChieu === state.sapChieu);
+            return {...state};
         }
 
         default: return { ...state }
