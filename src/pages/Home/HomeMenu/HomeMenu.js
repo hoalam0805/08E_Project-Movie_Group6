@@ -1,28 +1,91 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Tabs, Radio, Space } from 'antd';
 import { useState } from 'react';
+import { connect } from 'react-redux';
+import './HomeMenu.css'
+import { NavLink } from 'react-router-dom';
+import moment from 'moment';
 const { TabPane } = Tabs;
 
-export default function HomeMenu(props) {
-    const [state, setState] = useState({
+export default class Demo extends React.PureComponent {
+    state = {
         tabPosition: 'left',
-    })
+    }
 
-    const changeTabPosition = e => {
-        setState({ tabPosition: e.target.value });
-      };
+    changeTabPosition = e => {
+        this.setState({ tabPosition: e.target.value });
+    };
 
-    const { tabPosition } = state;
-    return (
-        <>
-            <Tabs tabPosition={tabPosition}>
-                <TabPane tab={<img src="https://picsum.photos/200/200" className="rounded-full" width="50" />} key="1">
+    componentDidMount() {
+    }
+
+    renderHeThongRap = () => {
+        return this.props.heThongRapChieu?.map((heThongRap, index) => {
+            let { tabPosition } = this.state;
+            return (
+                <TabPane tab={<img src={heThongRap.logo} className="rounded-full" width="50" />} key={index}>
+                    <Tabs className="p-0" tabPosition={tabPosition}>
+                        {heThongRap.lstCumRap?.map((cumRap, index) => {
+                            return <TabPane tab=
+                                {
+                                    <div style={{ width: '320px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                                        <img src={heThongRap.logo} className="rounded-ful" width="50" /><br />
+                                        <div className="text-left ml-2">
+                                            {cumRap.tenCumRap}
+                                            <p className="text-red-500 p-0 m-0">Chi tiết</p>
+                                        </div>
+                                    </div>
+                                }
+                                key={index}>
+                                {/* Load phim tương ứng */}
+
+                                {cumRap.danhSachPhim.map((phim, index) => {
+                                    return (
+                                        <Fragment key={index}>
+                                            <div className="my-2" style={{ display: 'flex' }}>
+                                                <div style={{ display: 'flex', flexDirection: 'row', width:'100%', alignItems:'start' }}>
+                                                    <div style={{width: '10%', height: 'auto'}}>
+                                                        <img src={phim.hinhAnh} alt={phim.tenPhim} onError={(e)=>{
+                                                            e.target.onerror = null; e.target.src="image_path_here"
+                                                        }} />
+                                                    </div>
+                                                    <div style={{width: '90%'}}>
+                                                        <h1 className="ml-2 text-lg m-0">{phim.tenPhim}</h1>
+                                                        <p className="ml-2 p-0 m-0">{cumRap.diaChi}</p>
+                                                        <div className="grid grid-cols-6 gap-1 ml-2">
+                                                            {phim.lstLichChieuTheoPhim?.slice(0,30).map((lichChieu, ibdex) => {
+                                                                return <NavLink className="text-lg text-gray-600" to="/" key={index}>
+                                                                    {moment(lichChieu.ngayChieuGioChieu).format('hh:mmA')}
+                                                                </NavLink>
+                                                            })}
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <hr />
+                                        </Fragment>
+                                    )
+                                })}
+
+
+                            </TabPane>
+                        })}
+                    </Tabs>
                 </TabPane>
-                <TabPane tab={<img src="https://picsum.photos/200/200" className="rounded-full" width="50" />} key="2">
-                </TabPane>
-                <TabPane tab={<img src="https://picsum.photos/200/200" className="rounded-full" width="50" />} key="3">
-                </TabPane>
-            </Tabs>
-        </>
-    )
+            )
+        })
+    }
+
+    render() {
+        console.log(this.props);
+        const { tabPosition } = this.state;
+        return (
+            <>
+                <Tabs tabPosition={tabPosition}>
+                    {this.renderHeThongRap()}
+                </Tabs>
+            </>
+        )
+    }
 }
