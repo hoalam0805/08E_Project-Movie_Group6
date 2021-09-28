@@ -44,16 +44,20 @@ export default class Demo extends React.PureComponent {
                                         <Fragment key={index}>
                                             <div className="my-2" style={{ display: 'flex' }}>
                                                 <div style={{ display: 'flex', flexDirection: 'row', width:'100%', alignItems:'start' }}>
+                                                    {/* Hình phim */}
                                                     <div style={{width: '10%', height: 'auto'}}>
                                                         <img src={phim.hinhAnh} alt={phim.tenPhim} onError={(e)=>{
                                                             e.target.onerror = null; e.target.src="image_path_here"
                                                         }} />
                                                     </div>
-                                                    <div style={{width: '90%'}}>
+                                                    {/* Chi tiết phim / địa chỉ / giờ chiếu phim */}
+                                                    <div style={{width: '90%'}}> 
                                                         <h1 className="ml-2 text-lg m-0">{phim.tenPhim}</h1>
-                                                        <p className="ml-2 p-0 m-0">{cumRap.diaChi}</p>
-                                                        <div className="grid grid-cols-6 gap-1 ml-2">
-                                                            {phim.lstLichChieuTheoPhim?.slice(0,30).map((lichChieu, ibdex) => {
+                                                        <p className="ml-2 p-0 mb-1">{cumRap.diaChi}</p>
+                                                        {/* Sử dụng grid để layout giờ chiếu phim */}
+                                                        <div className="grid grid-cols-6 gap-1 ml-2">  
+                                                            {/* Sử dụng slice(0,x) để ẩn bớt giờ chiếu phim */}
+                                                            {phim.lstLichChieuTheoPhim?.slice(0,30).map((lichChieu, ibdex) => { 
                                                                 return <NavLink className="text-lg text-gray-600" to="/" key={index}>
                                                                     {moment(lichChieu.ngayChieuGioChieu).format('hh:mmA')}
                                                                 </NavLink>

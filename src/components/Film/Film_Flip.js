@@ -1,6 +1,8 @@
 import React from 'react'
+import { history } from '../../App';
 import './Film_Flip.css'
 
+//Giao diện của 1 thẻ phim
 export default function Film_Flip(props) {
     const {phim} = props;
 
@@ -22,7 +24,9 @@ export default function Film_Flip(props) {
                     </div>
                 </div>
             </div>
-            <div className="text-center cursor-pointer py-2 bg-gray-200 my-2 font-bold">ĐẶT VÉ</div>
+            <div onClick={() => { //Sử dụng history cho sự kiện onClick để chuyển hướng trang qua trang detail
+                history.push(`/detail/${phim.maPhim}`)
+            }} className="text-center cursor-pointer py-2 bg-gray-200 my-2 font-bold">ĐẶT VÉ</div>
         </div>
 
     )

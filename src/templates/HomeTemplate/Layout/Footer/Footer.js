@@ -31,8 +31,8 @@ export default function Footer(props) {
                     <div className="col-span-6 text-center md:text-left md:col-span-3">
                         <p className="pb-1 text-lg font-medium text-white">Mobile app</p>
                         <div className="flex text-white">
-                            <div className="mr-5"><i class="fab fa-apple text-2xl"></i></div>
-                            <div className><i class="fab fa-facebook-square text-2xl"></i></div>
+                            <div className="mr-5"><i className="fab fa-apple text-2xl"></i></div>
+                            <div className><i className="fab fa-facebook-square text-2xl"></i></div>
                         </div>
                     </div>
                 </div>
