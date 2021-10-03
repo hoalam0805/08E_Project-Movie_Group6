@@ -29,7 +29,7 @@ export default class Demo extends React.PureComponent {
                             return <TabPane tab=
                                 {
                                     <div style={{ width: '320px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-                                        <img src={heThongRap.logo} className="rounded-ful" width="50" /><br />
+                                        <img src={heThongRap.logo} className="rounded-full" width="50" /><br />
                                         <div className="text-left ml-2">
                                             {cumRap.tenCumRap}
                                             <p className="text-red-500 p-0 m-0">Chi tiết</p>
