@@ -1,0 +1,8 @@
+header.active{
+    background-color: #000 !important;
+    box-shadow: rgba(0,0,0,0.2) 0px 20px 30px;
+}
+
+header{
+    transition: all 0.5s ease;
+}

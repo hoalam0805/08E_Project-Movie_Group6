@@ -56,11 +56,11 @@ const MultipleRows = (props) => {
         };
         return (
             <div className="container">
-                <button className={`${styleSlick[activeClassDC]} px-8 py-3 font-semibold border rounded border-gray-800 mr-3`} onClick={() => {
+                <button className={`${styleSlick[activeClassDC]} px-8 py-3 font-semibold border rounded border-black mr-3`} onClick={() => {
                     const action = {type:SET_PHIM_DANG_CHIEU}
                     dispatch(action);
                 }}>PHIM ĐANG CHIẾU</button>
-                <button className={`${styleSlick[activeClassSC]} px-8 py-3 font-semibold border rounded border-gray-800`} onClick={() => {
+                <button className={`${styleSlick[activeClassSC]} px-8 py-3 font-semibold border rounded border-black`} onClick={() => {
                     const action = {type: SET_PHIM_SAP_CHIEU}
                     dispatch(action)
                 }}>PHIM SẮP CHIẾU</button>

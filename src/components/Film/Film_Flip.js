@@ -26,7 +26,7 @@ export default function Film_Flip(props) {
             </div>
             <div onClick={() => { //Sử dụng history cho sự kiện onClick để chuyển hướng trang qua trang detail
                 history.push(`/detail/${phim.maPhim}`)
-            }} className="text-center cursor-pointer py-2 bg-gray-200 my-2 font-bold">ĐẶT VÉ</div>
+            }} className="text-center cursor-pointer py-2 bg-yellow-500 text-black my-2 font-bold">ĐẶT VÉ</div>
         </div>
 
     )

@@ -8,7 +8,7 @@ export default function Footer(props) {
     const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) => _.pick(heThongRap, ['maHeThongRap', 'tenHeThongRap', 'logo']));
 
     return (
-        <footer className="py-6 dark:bg-coolGray-800 dark:text-coolGray-50" style={{backgroundColor:'#1E2330'}}>
+        <footer className="py-6 dark:bg-coolGray-800 dark:text-coolGray-50" style={{backgroundColor:'#000'}}>
             <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
                 <div className="grid grid-cols-12">
                     <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
