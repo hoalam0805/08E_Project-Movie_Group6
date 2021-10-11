@@ -39,26 +39,26 @@ export default class Demo extends React.PureComponent {
                                 key={index}>
                                 {/* Load phim tương ứng */}
 
-                                {cumRap.danhSachPhim.map((phim, index) => {
+                                {cumRap.danhSachPhim.slice(0,4).map((phim, index) => {
                                     return (
                                         <Fragment key={index}>
                                             <div className="my-2" style={{ display: 'flex' }}>
                                                 <div style={{ display: 'flex', flexDirection: 'row', width:'100%', alignItems:'start' }}>
                                                     {/* Hình phim */}
                                                     <div style={{width: '10%', height: 'auto'}}>
-                                                        <img src={phim.hinhAnh} alt={phim.tenPhim} onError={(e)=>{
+                                                        <img style={{height:'100px', width:'100px'}} src={phim.hinhAnh} alt={phim.tenPhim} onError={(e)=>{
                                                             e.target.onerror = null; e.target.src="image_path_here"
                                                         }} />
                                                     </div>
                                                     {/* Chi tiết phim / địa chỉ / giờ chiếu phim */}
                                                     <div style={{width: '90%'}}> 
                                                         <h1 className="ml-2 text-lg m-0">{phim.tenPhim}</h1>
-                                                        <p className="ml-2 p-0 mb-1">{cumRap.diaChi}</p>
+                                                        <p className="ml-2 p-0 mb-4">{cumRap.diaChi}</p>
                                                         {/* Sử dụng grid để layout giờ chiếu phim */}
-                                                        <div className="grid grid-cols-6 gap-1 ml-2">  
+                                                        <div className="grid grid-cols-6 gap-3 ml-2">  
                                                             {/* Sử dụng slice(0,x) để ẩn bớt giờ chiếu phim */}
-                                                            {phim.lstLichChieuTheoPhim?.slice(0,30).map((lichChieu, ibdex) => { 
-                                                                return <NavLink className="text-lg text-gray-600" to="/" key={index}>
+                                                            {phim.lstLichChieuTheoPhim?.slice(0,12).map((lichChieu, ibdex) => { 
+                                                                return <NavLink className="text-lg text-gray-600 text-film-begin-clock" to="/" key={index}>
                                                                     {moment(lichChieu.ngayChieuGioChieu).format('hh:mmA')}
                                                                 </NavLink>
                                                             })}

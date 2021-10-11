@@ -2,6 +2,16 @@
     padding: 8px 24px 8px 0 !important;
 }
 
-.ant-tabs-left > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane {
+.text-film-begin-clock{
+    color:#000;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    text-align:center;
+    padding:0.2rem 0;
+    border-radius:0.5rem;
+    transition: all 0.4s ease;
+}
 
+.text-film-begin-clock:hover{
+    background-color: rgba(245, 158, 11);
+    color:rgba(0,0,0);
 }

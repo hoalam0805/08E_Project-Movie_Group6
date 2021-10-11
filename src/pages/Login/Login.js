@@ -24,14 +24,12 @@ export default function Login(props) {
         }
     });
 
-
-
     return (
         <form onSubmit={formik.handleSubmit} className="lg:w-1/2 xl:max-w-screen-sm">
             <div className="py-12 bg-black lg:bg-black flex justify-center lg:justify-start lg:px-12">
-                <div className="cursor-pointer flex items-center">
-                    <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn" />
-                </div>
+                <NavLink to="/" className="cursor-pointer flex items-center">
+                    <img src="./img/logo.svg" alt="cyberlearn.vn" />
+                </NavLink>
             </div>
             <div className="mt-10 px-12 sm:px-24 md:px-48 lg:px-12 lg:mt-16 xl:px-24 xl:max-w-2xl">
                 <h2 className="text-center text-4xl text-black-900 font-display font-semibold lg:text-left xl:text-5xl

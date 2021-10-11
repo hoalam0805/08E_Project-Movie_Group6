@@ -1,4 +1,4 @@
-import { TOKEN_CYBERSOFT, USER_LOGIN } from "../../util/settings/config";
+import { ACCESS_TOKEN, USER_LOGIN } from "../../util/settings/config";
 import { DANG_NHAP_ACTION } from "../actions/types/QuanLyNguoiDungType";
 
 let user = {};
@@ -15,8 +15,8 @@ export const QuanLyNguoiDungReducer = (state = stateDefault, action) => {
     switch (action.type) {
         case DANG_NHAP_ACTION: {
             const {thongTinDangNhap} = action;
-            localStorage.setItem(USER_LOGIN,JSON.stringify(thongTinDangNhap));
-            localStorage.setItem(TOKEN_CYBERSOFT,thongTinDangNhap.accessToken);
+            localStorage.setItem(USER_LOGIN, JSON.stringify(thongTinDangNhap));
+            localStorage.setItem(ACCESS_TOKEN, thongTinDangNhap.accessToken);
             return {...state,userLogin:thongTinDangNhap};
         }
 

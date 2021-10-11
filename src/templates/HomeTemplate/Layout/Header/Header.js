@@ -20,9 +20,9 @@ export default function Header(props) {
     return (
         <header className={navbar ? "p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-black bg-opacity-40 text-white fixed w-full z-10 active" : "p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-black bg-opacity-40 text-white fixed w-full z-10"}>
             <div className="container flex justify-between h-16 mx-auto">
-                <a href="#" aria-label="Back to homepage" className="flex items-center p-2">
-                    <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn" />
-                </a>
+                <NavLink to="/" aria-label="Back to homepage" className="flex items-center p-2">
+                    <img src="./img/logo.svg" alt="cyberlearn.vn" />
+                </NavLink>
                 <ul className="items-stretch hidden space-x-3 lg:flex">
                     <li className="flex">
                         <NavLink to="/home" className="font-semibold flex items-center px-4 -mb-1 dark:border-transparent dark:text-violet-400 dark:border-violet-400 text-white" activeClassName="border-b-2 border-white">
