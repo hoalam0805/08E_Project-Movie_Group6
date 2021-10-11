@@ -5,7 +5,7 @@ import { getCarouselAction } from '../../../../redux/actions/CarouselActions';
 import './HomeCarousel.css'
 
 const contentStyle = {
-    height: '600px',
+    height: '100vh',
     color: '#fff',
     lineHeight: '160px',
     textAlign: 'center',

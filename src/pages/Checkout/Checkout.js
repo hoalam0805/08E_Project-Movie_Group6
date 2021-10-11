@@ -35,7 +35,7 @@ export default function Checkout(props) {
     }
 
     return (
-        <div className="min-h-screen pt-5" style={{ height: '100vh', width: '100%' }}>
+        <div className="min-h-screen mt-5" style={{ height: '100vh', width: '100%' }}>
             <div className="grid grid-cols-12">
                 <div className="col-span-9">
                     <div className="flex flex-col items-center mt-5">
@@ -55,11 +55,11 @@ export default function Checkout(props) {
                         <p>Địa điểm: {thongTinPhim.tenCumRap} - {thongTinPhim.tenRap}</p>
                         <p>Ngày chiếu: {thongTinPhim.ngayChieu} - {thongTinPhim.gioChieu}</p>
                         <hr />
-                        <div className="flex flex-row my-5">
-                            <div className="w-4/5">
+                        <div className="flex flex-row justify-between my-5">
+                            <div className="">
                                 <span className="text-lg">Ghế</span>
                             </div>
-                            <div className="text-right col-span-1">
+                            <div className="text-right" style={{marginRight:'1.5rem'}}>
                                 <span className="text-lg">0đ</span>
                             </div>
                         </div>

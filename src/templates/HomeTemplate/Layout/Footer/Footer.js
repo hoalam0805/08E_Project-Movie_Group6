@@ -13,7 +13,7 @@ export default function Footer(props) {
                 <div className="grid grid-cols-12">
                     <div className="pb-6 col-span-full md:pb-0 md:col-span-6">
                         <a href="#" aria-label="Back to homepage" className="flex items-center p-2">
-                            <img src="https://cyberlearn.vn/wp-content/uploads/2020/03/cyberlearn-min-new-opt2.png" alt="cyberlearn.vn" />
+                            <img src="./img/logo.svg" alt="cyberlearn.vn" />
                         </a>
                     </div>
                     <div className="col-span-6 text-center md:text-left md:col-span-3">

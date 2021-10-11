@@ -31,7 +31,7 @@ export default class Demo extends React.PureComponent {
                                     <div style={{ width: '320px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                                         <img src={heThongRap.logo} className="rounded-full" width="50" /><br />
                                         <div className="text-left ml-2">
-                                            {cumRap.tenCumRap}
+                                            <p className="cinema-name p-0 m-0">{cumRap.tenCumRap}</p>
                                             <p className="text-red-500 p-0 m-0">Chi tiết</p>
                                         </div>
                                     </div>
@@ -39,7 +39,7 @@ export default class Demo extends React.PureComponent {
                                 key={index}>
                                 {/* Load phim tương ứng */}
 
-                                {cumRap.danhSachPhim.slice(0,4).map((phim, index) => {
+                                {cumRap.danhSachPhim.slice(0,5).map((phim, index) => {
                                     return (
                                         <Fragment key={index}>
                                             <div className="my-2" style={{ display: 'flex' }}>
