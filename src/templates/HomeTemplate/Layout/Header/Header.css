@@ -1,6 +1,18 @@
 header.active{
-    background-color: #000 !important;
+    background-color: #fff !important;
     box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+header.active, header.active .nav-text{
+    color: #000;
+}
+
+header.active .brand-logo img{
+    transition: all 0.4s ease;
+}
+
+header.active .brand-logo span {
+    color: #000 !important;
 }
 
 header{

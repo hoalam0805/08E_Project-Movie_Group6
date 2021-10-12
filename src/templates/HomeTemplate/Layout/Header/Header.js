@@ -18,10 +18,12 @@ export default function Header(props) {
     window.addEventListener('scroll',changeBackground);
 
     return (
-        <header className={navbar ? "p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-black bg-opacity-40 text-white fixed w-full z-10 active" : "p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-black bg-opacity-40 text-white fixed w-full z-10"}>
+        <header className={navbar ? "p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-black bg-opacity-40 text-white fixed w-full z-10 active" : "p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-white bg-opacity-5 text-white fixed w-full z-10"}>
             <div className="container-fluid flex justify-between h-16 mx-auto">
-                <NavLink to="/" aria-label="Back to homepage" className="flex items-center p-2" style={{width:'25%'}}>
-                    <img src="./img/logo.svg" alt="cyberlearn.vn" />
+                <NavLink to="/" aria-label="Back to homepage" className="flex items-center p-2 brand-logo" style={{width:'25%'}}>
+                    <span style={{color:'#fff', fontSize:'50px', marginRight:'-8px'}}>H∴C</span>
+                    <img src="https://www.freeiconspng.com/uploads/video-camera-tripod-icon-12.png" alt="cyberlearn.vn" style={{width:'10%'}} />
+                    <span style={{color:'#fff', fontSize:'50px', marginLeft:'-8px'}}>nema</span>
                 </NavLink>
                 <ul className="hidden space-x-3 flex flex-row justify-center lg:flex items-center" style={{width:'50%', height:'100%'}}>
                     <li className="flex">
@@ -43,8 +45,8 @@ export default function Header(props) {
                 <div className="items-center flex-shrink-0 hidden flex flex-row justify-end lg:flex" style={{width:'25%'}}>
                     <button onClick={() => {
                         history.push('/login');
-                    }} className="text-xl self-center px-1 py-3 rounded" style={{width:'9rem'}}>Đăng nhập</button>
-                    <button className="text-xl self-center px-1 py-3 rounded" style={{width:'9rem'}}>Đăng ký</button>
+                    }} className="text-xl self-center px-1 py-3 rounded btn-user" style={{width:'9rem'}}>Đăng nhập</button>
+                    <button className="text-xl self-center px-1 py-3 rounded btn-user" style={{width:'9rem'}}>Đăng ký</button>
                 </div>
                 <button className="p-4 lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-coolGray-100">

@@ -2,3 +2,11 @@
     margin: 0 !important;
     padding: 0 !important;
 }
+
+.slick-dots li button:before{
+    display: none;
+}
+
+.slick-dots li.slick-active button:before{
+    display: none;
+}
