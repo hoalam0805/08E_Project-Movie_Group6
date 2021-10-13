@@ -1,7 +1,8 @@
 import { http } from "../../util/settings/config";
-import { SET_CHI_TIET_PHONG_VE, DAT_VE_HOAN_TAT, CHUYEN_TAB } from "./types/QuanLyDatVeType";
+import { SET_CHI_TIET_PHONG_VE, DAT_VE_HOAN_TAT, CHUYEN_TAB, DAT_VE } from "./types/QuanLyDatVeType";
 import { ThongTinDatVe } from "../../_core/models/ThongTinDatVe";
 import { displayLoadingAction, hideLoadingAction } from "./LoadingActions";
+import { connection } from "../../index";
 
 
 export const layChiTietPhongVeAction = (maLichChieu) => {
@@ -38,13 +39,35 @@ export const datVeAction = (thongTinDatVe = new ThongTinDatVe()) => {
         })
         //đặt vé thành công => gọi API load lại phòng vé
         await dispatch(layChiTietPhongVeAction(thongTinDatVe.maLichChieu));
-        await dispatch({type:DAT_VE_HOAN_TAT});
+        await dispatch({ type: DAT_VE_HOAN_TAT });
         await dispatch(hideLoadingAction);
-        dispatch({type:CHUYEN_TAB});
+        dispatch({ type: CHUYEN_TAB });
 
         promise.catch((error) => {
             dispatch(hideLoadingAction);
             console.log('error', error.response.data);
         })
+    }
+}
+
+export const datGheAction = (ghe, maLichChieu) => {
+    return async (dispatch,getState) => {
+        //Đưa thông tin ghế lên reducer
+        await dispatch({
+            type: DAT_VE,
+            gheDuocChon: ghe
+        })
+
+        //Call api về backend
+        let danhSachGheDangDat = getState().QuanLyDatVeReducer.danhSachGheDangDat;
+        let taiKhoan = getState().QuanLyNguoiDungReducer.userLogin.taiKhoan;
+
+        console.log('danhSachGheDangDat',danhSachGheDangDat);
+        console.log('taiKhoan',taiKhoan);
+        console.log('maLichChieu',maLichChieu);
+        //Biến mảng thành chuỗi
+        danhSachGheDangDat = JSON.stringify(danhSachGheDangDat);
+        //Call api của signalR
+        // connection.invoke('datGhe', taiKhoan, danhSachGheDangDat, maLichChieu);
     }
 }
