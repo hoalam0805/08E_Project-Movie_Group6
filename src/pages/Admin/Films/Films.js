@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { layDanhSachPhimAction } from '../../../redux/actions/QuanLyPhimActions';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { history } from '../../../App';
 
 const { Search } = Input;
 
@@ -86,7 +87,9 @@ export default function Films() {
     return (
         <div className="container">
             <h3 className="text-4xl">Quản lý phim</h3>
-            <Button className="mb-5">Thêm phim</Button>
+            <Button className="mb-5" onClick={() => {
+                history.push('films/addnew');
+            }}>Thêm phim</Button>
             <Search
                 className="mb-5"
                 placeholder="input search text"
