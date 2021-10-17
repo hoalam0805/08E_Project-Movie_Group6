@@ -42,7 +42,7 @@ export default function HomeCarousel(props) {
     }
 
     return (
-        <Carousel effect="fade" style={{ position: 'relative', zIndex: '1' }}>
+        <Carousel autoplay effect="fade" style={{ position: 'relative', zIndex: '1' }}>
             {renderImg()}
         </Carousel>
     )

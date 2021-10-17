@@ -53,7 +53,7 @@
   color: rgba(0, 0, 0);
   font-family: "Montserrat";
   font-weight: bold;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-book-ticket:hover {

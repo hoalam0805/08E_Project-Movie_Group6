@@ -1,10 +1,13 @@
 import React from 'react'
 import { history } from '../../App';
 import './Film_Flip.css'
+//Hook để dịch đa ngôn ngữ
+import { useTranslation } from 'react-i18next';
 
 //Giao diện của 1 thẻ phim
 export default function Film_Flip(props) {
     const {phim} = props;
+    const {t, i18n} = useTranslation();
 
     return (
         <div className="flip-card mt-2">
@@ -26,7 +29,7 @@ export default function Film_Flip(props) {
             </div>
             <div onClick={() => { //Sử dụng history cho sự kiện onClick để chuyển hướng trang qua trang detail
                 history.push(`/detail/${phim.maPhim}`)
-            }} className="btn-book-ticket text-center cursor-pointer py-2 my-2">ĐẶT VÉ</div>
+            }} className="btn-book-ticket text-center cursor-pointer py-2 my-2">{t('ĐẶT VÉ')}</div>
         </div>
 
     )

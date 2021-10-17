@@ -8,13 +8,13 @@
     text-align:center;
     padding:0.2rem 0;
     border-radius:0.5rem;
-    transition: all 0.4s ease;
+    transition: all 0.2s ease;
     margin-right: 5px;
 }
 
 .text-film-begin-clock:hover{
     background-color: rgba(243, 150, 71);
-    color:rgba(0,0,0);
+    color:#fff;
 }
 
 .cinema-name{

@@ -16,6 +16,9 @@ import 'antd/dist/antd.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+//i18next - chức năng đa ngôn ngữ
+import './i18n';
+
 //Đoạn code để kết nối đến server lắng nghe sự kiện từ server
 export const connection = new signalR.HubConnectionBuilder().withUrl(`https://movienew.cybersoft.edu.vn/DatVeHub`).configureLogging(signalR.LogLevel.Information).build();
 

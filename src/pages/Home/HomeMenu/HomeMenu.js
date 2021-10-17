@@ -58,7 +58,7 @@ export default class Demo extends React.PureComponent {
                                                         <div className="grid grid-cols-6 gap-3 ml-2">  
                                                             {/* Sử dụng slice(0,x) để ẩn bớt giờ chiếu phim */}
                                                             {phim.lstLichChieuTheoPhim?.slice(0,12).map((lichChieu, ibdex) => { 
-                                                                return <NavLink className="text-lg text-gray-600 text-film-begin-clock" to="/" key={index}>
+                                                                return <NavLink className="text-lg text-gray-600 text-film-begin-clock" to={`/checkout/${lichChieu.maLichChieu}`} key={index}>
                                                                     {moment(lichChieu.ngayChieuGioChieu).format('hh:mmA')}
                                                                 </NavLink>
                                                             })}

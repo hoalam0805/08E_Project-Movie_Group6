@@ -1,0 +1,15 @@
+#root > form > div > div > div:nth-child(1) > div.mt-10 > button.btn-sign-in{
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+    transition: all 0.2s ease;
+}
+
+#root > form > div > div > div:nth-child(1) > div.mt-10 > button.btn-sign-in:hover{
+    background-color: coral;
+    color: #fff;
+}
+
+.ant-modal-footer{
+    display: none;
+}

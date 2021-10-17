@@ -1,7 +1,7 @@
 import React, { useEffect, Fragment } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { layChiTietPhongVeAction, datVeAction, datGheAction } from '../../redux/actions/QuanLyDatVeActions';
-import { CloseOutlined, UserOutlined, TeamOutlined } from '@ant-design/icons'
+import { CloseOutlined, UserOutlined, TeamOutlined, HomeOutlined } from '@ant-design/icons'
 import './Checkout.css'
 import { CHUYEN_TAB, DAT_VE } from '../../redux/actions/types/QuanLyDatVeType';
 import _ from 'lodash';
@@ -10,6 +10,9 @@ import { Tabs } from 'antd';
 import { layThongTinNguoiDungAction } from '../../redux/actions/QuanLyNguoiDungActions';
 import moment from 'moment';
 import { connection } from '../../index';
+import { history } from '../../../src/App';
+import { ACCESS_TOKEN, USER_LOGIN } from '../../util/settings/config';
+import { NavLink } from 'react-router-dom';
 
 
 function Checkout(props) {
@@ -24,7 +27,7 @@ function Checkout(props) {
 
         //Load danh sách ghế đang đặt từ server về
         connection.on("loadDanhSachGheDaDat", (dsGheKhachDat) => {
-            console.log('danhSachGheKhachDat',dsGheKhachDat);
+            console.log('danhSachGheKhachDat', dsGheKhachDat);
         })
     }, [])
 
@@ -33,7 +36,7 @@ function Checkout(props) {
         return danhSachGhe.map((ghe, index) => {
             let classGheVip = ghe.loaiGhe === 'Vip' ? 'gheVip' : '';
             let classGheDaDat = ghe.daDat === true ? 'gheDaDat' : '';
-            
+
             //Kiểm tra từng ghế render xem có trong mảng ghế đang đặt không
             let classGheDangDat = '';
             let indexGheDD = danhSachGheDangDat.findIndex(gheDD => gheDD.maGhe == ghe.maGhe);
@@ -41,7 +44,7 @@ function Checkout(props) {
             //Kiểm tra từng ghế render xem có phải ghế khách khác đặt hay không
             let classGheKhachKhacDat = '';
             let indexGheKD = danhSachGheKhachKhacDat.findIndex(gheKD => gheKD.maGhe == ghe.maGhe);
-            if(indexGheKD != -1){
+            if (indexGheKD != -1) {
                 classGheKhachKhacDat = 'gheKhachKhacDangDat';
             }
 
@@ -58,7 +61,7 @@ function Checkout(props) {
                     dispatch(action);
 
                 }} disabled={ghe.daDat || classGheKhachKhacDat !== ''} className={`ghe ${classGheVip} ${classGheDaDat} ${classGheDangDat} ${classGheDaDuocDat} ${classGheKhachKhacDat} text-center`} key={index} style={{ fontFamily: 'Roboto' }}>
-                    {ghe.daDat ? classGheDaDuocDat != '' ? <UserOutlined style={{ marginBottom: '7.5px' }} /> : <CloseOutlined style={{ marginBottom: '7.5px' }} /> : classGheKhachKhacDat !== '' ? <TeamOutlined style={{ marginBottom: '7.5px' }}/> : ghe.stt}
+                    {ghe.daDat ? classGheDaDuocDat != '' ? <UserOutlined style={{ marginBottom: '7.5px' }} /> : <CloseOutlined style={{ marginBottom: '7.5px' }} /> : classGheKhachKhacDat !== '' ? <TeamOutlined style={{ marginBottom: '7.5px' }} /> : ghe.stt}
                 </button>
                 {(index + 1) % 16 == 0 ? <br /> : ''}
             </Fragment>
@@ -68,7 +71,7 @@ function Checkout(props) {
     return (
         <div className="p-5" style={{ height: '100%', width: '100%', borderRadius: '0.5rem', backgroundColor: '#fff' }}>
             <div className="grid grid-cols-12 gap-5">
-                <div className="col-span-9 cinema-map" style={{border:'1px solid rgba(128,128,128,0.5)', borderRadius: '0.5rem'}}>
+                <div className="col-span-9 cinema-map" style={{ border: '1px solid rgba(128,128,128,0.5)', borderRadius: '0.5rem' }}>
                     <div className="flex flex-col items-center mt-5">
                         <div className="bg-black text-center" style={{ width: '70%', height: 'fit-content' }}><span className="text-white" style={{ fontFamily: 'Roboto' }}>Màn hình</span></div>
                         <div className="trapezoid"></div>
@@ -78,7 +81,7 @@ function Checkout(props) {
                     </div>
                 </div>
                 <div className="col-span-3 flex flex-col justify-start" style={{ position: 'relative', width: '100%' }}>
-                    <div style={{border:'1px solid rgba(128,128,128,0.5)', padding: '0.5rem', borderRadius: '0.5rem'}}>
+                    <div style={{ border: '1px solid rgba(128,128,128,0.5)', padding: '0.5rem', borderRadius: '0.5rem' }}>
                         <div>
                             <h3 className="text-center text-4xl">{danhSachGheDangDat.reduce((tongTien, ghe, index) => {
                                 return tongTien += ghe.giaVe;
@@ -101,12 +104,12 @@ function Checkout(props) {
                                     }, 0).toLocaleString()}đ</span>
                                 </div>
                             </div>
-                            <table className="mb-5" style={{border:'1px solid transparent', padding: '0.5rem', borderRadius: '0.5rem'}}>
+                            <table className="mb-5" style={{ border: '1px solid transparent', padding: '0.5rem', borderRadius: '0.5rem' }}>
                                 <tbody>
                                     <tr className="flex flex-row flex-wrap">
                                         {_.sortBy(danhSachGheDangDat, ['stt']).map((gheDD, index) => {
                                             return (
-                                                <p key={index} className="text-green-500 text-lg m-0 p-0" style={{ fontFamily: 'Roboto', width: '2.945rem', textAlign: 'center', margin: '0.2rem', border:'1px solid rgba(128,128,128,0.2)', padding:'0.5rem', borderRadius: '0.5rem' }}> {gheDD.stt}</p>
+                                                <p key={index} className="text-green-500 text-lg m-0 p-0" style={{ fontFamily: 'Roboto', width: '2.945rem', textAlign: 'center', margin: '0.2rem', border: '1px solid rgba(128,128,128,0.2)', padding: '0.5rem', borderRadius: '0.5rem' }}> {gheDD.stt}</p>
                                             )
                                         })}
                                     </tr>
@@ -185,9 +188,43 @@ function callback(key) {
 export default function CheckoutTab(props) {
     const { tabActive } = useSelector(state => state.QuanLyDatVeReducer);
     const dispatch = useDispatch();
+    
+    const { userLogin } = useSelector(state => state.QuanLyNguoiDungReducer);
+
+    useEffect(() => {
+        return () => {
+            dispatch({
+                type: 'CHANGE_TAB_ACTIVE',
+                number: '1'
+            })
+        }
+    }, [])
+
+    const operations = <Fragment>
+        {!_.isEmpty(userLogin) ? <Fragment>
+            <div className="flex flex-row justify-between items-center">
+                <div className="text-center" style={{ backgroundColor: 'coral', padding: '0.79rem', borderTopLeftRadius: '0.2rem', borderRight: '1px solid rgba(250,250,250)' }}>
+                    <NavLink style={{ color: 'white', textAlign: 'center' }} className="text-black hover:text-black focus:text-black" to="/"><HomeOutlined style={{ marginLeft: 10, fontSize: '25px' }} /></NavLink>
+                </div>
+                <button onClick={() => {
+                    localStorage.removeItem(USER_LOGIN);
+                    localStorage.removeItem(ACCESS_TOKEN);
+                    history.push('/home');
+                    window.location.reload();
+                }} className="text-white" style={{ backgroundColor: 'coral', padding: '0.91rem', fontSize: '14px' }}>ĐĂNG XUẤT</button>
+                <button className="text-black" style={{ backgroundColor: 'rgba(250, 250, 250)', width: '10rem', padding: '0.7rem', borderTopRightRadius: '0.2rem' }} onClick={() => {
+                    history.push('/profile')
+                }}><div className="flex flex-row justify-between items-center">
+                        <div style={{ fontSize: '14px' }}>Hello {userLogin.taiKhoan}</div>
+                        <div style={{ width: '20px', height: '20px', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: '0.9rem', textAlign: 'center', fontSize: '13px', backgroundColor: 'coral' }} className="rounded-full text-white">{userLogin.taiKhoan.substr(0, 1)}</div>
+                    </div>
+                </button>
+            </div>
+        </Fragment> : ""}
+    </Fragment>
     return (
         <div className="p-5" style={{ backgroundImage: 'url("https://tix.vn/app/assets/img/icons/backapp.jpg")' }}>
-            <Tabs defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
+            <Tabs tabBarExtraContent={operations} defaultActiveKey='1' activeKey={tabActive} onChange={(key) => {
                 dispatch({
                     type: 'CHANGE_TAB_ACTIVE',
                     number: key
@@ -250,8 +287,8 @@ function KetQuaDatVe(props) {
         <section className="text-gray-600 body-font">
             <div className="container px-5 py-24 mx-auto">
                 <div className="flex flex-col text-center w-full mb-20">
-                    <h1 className="sm:text-3xl font-medium title-font mb-4 text-white" style={{fontSize:'50px'}}>LỊCH SỬ ĐẶT VÉ</h1>
-                    <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-white" style={{fontSize: '20px'}}>Hãy xem thông tin địa điểm và thời gian để xem phim vui vẻ bạn nhé !</p>
+                    <h1 className="sm:text-3xl font-medium title-font mb-4 text-white" style={{ fontSize: '50px' }}>LỊCH SỬ ĐẶT VÉ</h1>
+                    <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-white" style={{ fontSize: '20px' }}>Hãy xem thông tin địa điểm và thời gian để xem phim vui vẻ bạn nhé !</p>
                 </div>
                 <div className="flex flex-wrap -m-2">
                     {renderTicketItem()}

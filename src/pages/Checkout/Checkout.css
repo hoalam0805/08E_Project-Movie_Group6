@@ -68,3 +68,7 @@
 .cinema-map{
   height: '90%' !important;
 }
+
+#root > div > div > div.ant-tabs-nav > div.ant-tabs-extra-content > div > div > a > span{
+  margin-left: 0 !important;
+}
