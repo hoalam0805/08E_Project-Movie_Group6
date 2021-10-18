@@ -45,6 +45,9 @@ const AdminTemplate = (props) => {
     {!_.isEmpty(userLogin) ? <Fragment>
       <div style={{display:'flex', flexDirection:'row', justifyContent: 'end', alignItems: 'center'}}>
         <button onClick={() => {
+          history.push('/')
+        }} style={{ width: 'fit-content', padding: '0 1rem', fontSize: '1rem', backgroundColor: 'rgba(0, 21, 41)', height: '60px', color: '#fff', marginLeft:'1rem', marginRight:'1rem', borderTopLeftRadius: '1rem', borderTopRightRadius: '1rem'}} >{t('Trang chủ')}</button>
+        <button onClick={() => {
           history.push('./profile')
         }} className="text-xl self-center rounded btn-logged-user">
           <div style={{ width: '50px', height: '50px', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: '0.9rem', textAlign: 'center', fontSize: '18px', backgroundColor: 'coral' }} className="rounded-full text-white">{userLogin.taiKhoan.substr(0, 1)}</div>

@@ -28,6 +28,8 @@ export const themPhimUploadHinhAction = (formData) => {
         promise.then((result) => {
             alert("Thêm phim thành công!");
             console.log('result', result.data.content);
+            dispatch(layDanhSachPhimAction());
+            history.push('/admin/films');
         })
         promise.catch((err) => {
             console.log('err', err.response?.data);

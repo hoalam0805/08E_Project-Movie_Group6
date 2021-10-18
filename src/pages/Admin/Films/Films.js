@@ -7,11 +7,13 @@ import { layDanhSachPhimAction } from '../../../redux/actions/QuanLyPhimActions'
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { history } from '../../../App';
+import { useTranslation } from 'react-i18next';
 
 const { Search } = Input;
 
 export default function Films() {
     const { arrFilmDefault } = useSelector(state => state.QuanLyPhimReducer);
+    const { t, i18n } = useTranslation();
 
     const dispatch = useDispatch();
 
@@ -69,8 +71,8 @@ export default function Films() {
             dataIndex: 'hanhDong',
             render: (text, films) => {
                 return <Fragment>
-                    <NavLink key={1} className="text-white mr-2 text-2xl" to={`films/edit/${films.maPhim}`}><EditOutlined style={{color:'darkgreen'}}/></NavLink>
-                    <NavLink key={2} className="text-white text-2xl" to="/"><DeleteOutlined style={{color:'maroon'}}/></NavLink>
+                    <NavLink key={1} className="text-white mr-2 text-2xl" to={`films/edit/${films.maPhim}`}><EditOutlined style={{ color: 'darkgreen' }} /></NavLink>
+                    <NavLink key={2} className="text-white text-2xl" to="/"><DeleteOutlined style={{ color: 'maroon' }} /></NavLink>
                 </Fragment>
             },
             width: '25%'
@@ -85,11 +87,13 @@ export default function Films() {
         console.log('params', pagination, filters, sorter, extra);
     }
     return (
-        <div className="container">
-            <h3 className="text-4xl">Quản lý phim</h3>
-            <Button className="mb-5" onClick={() => {
-                history.push('films/addnew');
-            }}>Thêm phim</Button>
+        <div className="container" style={{fontFamily: 'Roboto'}}>
+            <h3 className="text-4xl text-center">QUẢN LÝ PHIM</h3>
+            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'end' }}>
+                <Button style={{backgroundColor: 'darkGreen', color:'white', height:'3rem', width:'8rem', borderRadius: '0.5rem', fontSize:'16px', cursor:'pointer'}} className="mb-5" onClick={() => {
+                    history.push('films/addnew');
+                }}>{t('Thêm phim')}</Button>
+            </div>
             <Search
                 className="mb-5"
                 placeholder="input search text"
