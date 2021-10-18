@@ -69,8 +69,8 @@ export default function Films() {
             dataIndex: 'hanhDong',
             render: (text, films) => {
                 return <Fragment>
-                    <NavLink className="text-white mr-2 text-2xl" to="/"><EditOutlined style={{color:'darkgreen'}}/></NavLink>
-                    <NavLink className="text-white text-2xl" to="/"><DeleteOutlined style={{color:'maroon'}}/></NavLink>
+                    <NavLink key={1} className="text-white mr-2 text-2xl" to={`films/edit/${films.maPhim}`}><EditOutlined style={{color:'darkgreen'}}/></NavLink>
+                    <NavLink key={2} className="text-white text-2xl" to="/"><DeleteOutlined style={{color:'maroon'}}/></NavLink>
                 </Fragment>
             },
             width: '25%'
