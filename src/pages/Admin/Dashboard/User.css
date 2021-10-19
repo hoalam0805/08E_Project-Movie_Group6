@@ -1,0 +1,15 @@
+#root > section > section > main > div.site-layout-background > form > div > div > div.ant-col.ant-col-4.ant-form-item-label{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+#root > section > section > main > div.site-layout-background > form > div > div > div.ant-col.ant-col-14.ant-form-item-control > div {
+    width: 20rem !important;
+}
+
+#root > section > section > main > div.site-layout-background > form > div > div > div.ant-col.ant-col-14.ant-form-item-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}

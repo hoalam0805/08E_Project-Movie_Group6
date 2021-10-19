@@ -43,21 +43,21 @@ const AdminTemplate = (props) => {
 
   const operations = <Fragment>
     {!_.isEmpty(userLogin) ? <Fragment>
-      <div style={{display:'flex', flexDirection:'row', justifyContent: 'end', alignItems: 'center'}}>
-        <button onClick={() => {
-          history.push('/')
-        }} style={{ width: 'fit-content', padding: '0 1rem', fontSize: '1rem', backgroundColor: 'rgba(0, 21, 41)', height: '60px', color: '#fff', marginLeft:'1rem', marginRight:'1rem', borderTopLeftRadius: '1rem', borderTopRightRadius: '1rem'}} >{t('Trang chủ')}</button>
+      <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'end', alignItems: 'center' }}>
         <button onClick={() => {
           history.push('./profile')
         }} className="text-xl self-center rounded btn-logged-user">
           <div style={{ width: '50px', height: '50px', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: '0.9rem', textAlign: 'center', fontSize: '18px', backgroundColor: 'coral' }} className="rounded-full text-white">{userLogin.taiKhoan.substr(0, 1)}</div>
         </button>
+        <button onClick={() => {
+          history.push('/')
+        }} style={{ width: 'fit-content', padding: '0 1rem', fontSize: '1rem', backgroundColor: 'rgba(0, 21, 41)', height: '60px', color: '#fff', marginLeft: '1rem', borderTopLeftRadius: '0.5rem' }} >{t('Trang chủ')}</button>
         <button className="btn-sign-out" onClick={() => {
           localStorage.removeItem(USER_LOGIN);
           localStorage.removeItem(ACCESS_TOKEN);
           history.push('/home');
           window.location.reload();
-        }} style={{ width: 'fit-content', padding: '0 1rem', fontSize: '1rem', backgroundColor: 'rgba(0, 21, 41)', height: '60px', color: '#fff', marginLeft:'1rem', borderTopLeftRadius: '1rem', borderTopRightRadius: '1rem'}}>{t('Đăng xuất')}</button>
+        }} style={{ width: 'fit-content', padding: '0 1rem', fontSize: '1rem', backgroundColor: 'rgba(0, 21, 41)', height: '60px', color: '#fff', marginLeft: '0rem', borderTopRightRadius: '0.5rem', borderLeft:'1px solid #fff' }}>{t('Đăng xuất')}</button>
       </div>
 
     </Fragment> : ''}
@@ -68,19 +68,17 @@ const AdminTemplate = (props) => {
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
           <div className="logo p-5">
-            <span style={{ color: '#fff', fontSize: '35px' }}>H∴Cinema</span>
+            <span style={{ color: '#fff', fontSize: '40px' }}>H∴Cinema</span>
           </div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<UserOutlined />}>
-              <NavLink to="/admin/users">Users</NavLink>
-            </Menu.Item>
-            <SubMenu key="sub1" icon={<FileOutlined />} title="Films">
-              <Menu.Item key="2"><NavLink to="/admin/films">Films</NavLink></Menu.Item>
-              <Menu.Item key="3"><NavLink to="/admin/films/addnew">Add new</NavLink></Menu.Item>
+            <SubMenu key="sub1" icon={<UserOutlined />} title="Quản lý người dùng">
+              <Menu.Item key="1"><NavLink to="/admin/users">Danh sách người dùng</NavLink></Menu.Item>
+              <Menu.Item key="2"><NavLink to="/admin/users/addnew">Thêm người dùng mới</NavLink></Menu.Item>
             </SubMenu>
-            <Menu.Item key="4" icon={<DesktopOutlined />}>
-              <NavLink to="/admin/films">Showtime</NavLink>
-            </Menu.Item>
+            <SubMenu key="sub2" icon={<FileOutlined />} title="Quản lý phim">
+              <Menu.Item key="3"><NavLink to="/admin/films">Danh sách phim</NavLink></Menu.Item>
+              <Menu.Item key="4"><NavLink to="/admin/films/addnew">Thêm phim mới</NavLink></Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Layout className="site-layout">
