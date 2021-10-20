@@ -1,12 +1,51 @@
-.slick-dots-bottom{
-    margin: 0 !important;
-    padding: 0 !important;
+.slick-dots-bottom {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-.slick-dots li button:before{
-    display: none;
+.slick-dots li button:before {
+  display: none;
 }
 
-.slick-dots li.slick-active button:before{
-    display: none;
+.slick-dots li.slick-active button:before {
+  display: none;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1350px) {
+  #root > div > div.ant-carouseler {
+    height: 20rem !important;
+  }
+
+  #root > div > div.ant-carousel > div > div > div > div > div > div > div {
+    width: 100rem !important;
+    height: 50rem !important;
+    background-position: center center !important;
+    transform: translateX(-10%) !important;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 979px) {
+  #root > div > div.ant-carouseler {
+    height: 20rem !important;
+  }
+
+  #root > div > div.ant-carousel > div > div > div > div > div > div > div {
+    width: 70rem;
+    height: 35rem !important;
+    background-position: center center !important;
+    transform: translateX(-15%) !important;
+  }
+}
+
+@media screen and (min-width: 375px) and (max-width: 414px) {
+  #root > div > div.ant-carouseler {
+    height: 20rem !important;
+  }
+
+  #root > div > div.ant-carousel > div > div > div > div > div > div > div {
+    width: 50rem;
+    height: 25rem !important;
+    background-position: center center !important;
+    transform: translateX(-25%) !important;
+  }
 }

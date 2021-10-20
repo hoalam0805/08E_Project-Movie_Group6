@@ -1,22 +1,161 @@
 .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab {
-    padding: 8px 24px 8px 0 !important;
+  padding: 8px 24px 8px 0 !important;
 }
 
-.text-film-begin-clock{
-    color:#000;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.5);
-    text-align:center;
-    padding:0.2rem 0;
-    border-radius:0.5rem;
-    transition: all 0.2s ease;
-    margin-right: 5px;
+.text-film-begin-clock {
+  color: #000;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding: 0.2rem 0;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  margin-right: 5px;
 }
 
-.text-film-begin-clock:hover{
-    background-color: rgba(243, 150, 71);
-    color:#fff;
+.text-film-begin-clock:hover {
+  background-color: rgba(243, 150, 71);
+  color: #fff;
 }
 
-.cinema-name{
-    color: #000;
+.cinema-name {
+  color: #000;
 }
+
+/* iPad screen */
+@media screen and (min-width: 768px) and (max-width: 979px) {
+    #root > div > div.mx-36 {
+        margin-left: 4rem;
+        margin-right: 4rem;
+    }
+      
+    div#rc-tabs-0-panel-0.ant-tabs-tabpane.ant-tabs-tabpane-active.pb-5{
+        padding-left: 0.5rem;
+    }
+      
+    div#rc-tabs-0-panel-0.ant-tabs-tabpane.ant-tabs-tabpane-active.pb-5.ant-tabs-tabpane-active.pb-5{
+        padding-left: 0.5rem;
+    }
+      
+    .ant-tabs-tab > div {
+        width: 2rem;
+    }
+      
+    div.ant-tabs-tab-btn > div > img {
+        width: 2rem;
+    }
+
+    #rc-tabs-0-panel-0 > div > div.ant-tabs-content-holder > div.ant-tabs-content > div.ant-tabs-tabpane {
+        padding-left: 0.5rem;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div > h1 {
+        font-size: 0.8rem !important;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div > p {
+        font-size: 0.7rem !important;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div > div {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.2rem;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div > div > a{
+        font-size: 0.7rem !important;
+    }
+
+    #rc-tabs-0-panel-0 > div > div.ant-tabs-nav {
+        width: 17rem !important;
+    }
+
+    #rc-tabs-0-panel-0 > div > div.ant-tabs-nav > div.ant-tabs-nav-wrap > div > div.ant-tabs-tab > div > div > div > p {
+        font-size: 0.7rem !important;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div:nth-child(1){
+        width: 30% !important;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div:nth-child(2){
+        width: 70% !important;
+    }
+}
+
+/* Màn hình iPhone 6/7/8 & 6/7/8 Plus */
+@media screen and (min-width: 375px) and (max-width: 414px) {
+    #root > div > div.mx-36 {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
+    }
+
+    .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab, .ant-tabs-right > .ant-tabs-nav .ant-tabs-tab, .ant-tabs-left > div > .ant-tabs-nav .ant-tabs-tab, .ant-tabs-right > div > .ant-tabs-nav .ant-tabs-tab {
+        padding-right: 0.5rem !important;
+    }
+
+    .ant-tabs-left > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane, .ant-tabs-left > div > .ant-tabs-content-holder > .ant-tabs-content > .ant-tabs-tabpane {
+        padding-left: 0.5rem !important;
+    }
+
+    .ant-tabs-left > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab, .ant-tabs-right > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab, .ant-tabs-left > div > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab, .ant-tabs-right > div > .ant-tabs-nav .ant-tabs-tab + .ant-tabs-tab{
+        margin-top: 0 !important;
+    }
+  
+    .ant-tabs-tab > div {
+        width: 2rem !important;
+    }
+    
+    div.ant-tabs-tab-btn > div > img {
+        width: 2rem !important;
+    }
+
+    #rc-tabs-0-panel-0 > div > div.ant-tabs-content-holder > div.ant-tabs-content > div.ant-tabs-tabpane {
+        padding-left: 0.5rem !important;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div > h1 {
+        font-size: 0.6rem !important;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div > p {
+        font-size: 0.5rem !important;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div > div {
+        display: grid;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 0.2rem;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div > div > a{
+        font-size: 0.5rem !important;
+    }
+
+    #rc-tabs-0-panel-0 > div > div.ant-tabs-nav {
+        width: 10rem !important;
+    }
+
+    #rc-tabs-0-panel-0 > div > div.ant-tabs-nav > div.ant-tabs-nav-wrap > div > div.ant-tabs-tab > div > div > div > p {
+        font-size: 0.5rem !important;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div:nth-child(1){
+        width: 50% !important;
+    }
+
+    #rc-tabs-1-panel-0 > div > div > div:nth-child(2){
+        width: 50% !important;
+    }
+
+    #rc-tabs-1-panel-0 > div:nth-child(5), 
+    #rc-tabs-1-panel-0 > div:nth-child(6), 
+    #rc-tabs-1-panel-0 > div:nth-child(7), 
+    #rc-tabs-1-panel-0 > div:nth-child(8),
+    #rc-tabs-1-panel-0 > div:nth-child(9),
+    #rc-tabs-1-panel-0 > div:nth-child(1) {
+        display: none !important;
+    }
+}
+
+

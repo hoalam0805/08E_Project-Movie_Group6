@@ -11,8 +11,13 @@ import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next';
 import { ACCESS_TOKEN, USER_LOGIN } from '../../../../util/settings/config';
 
+import { Menu, Dropdown } from 'antd';
+import { DownOutlined, MenuOutlined } from '@ant-design/icons';
+
 
 const { Option } = Select;
+
+
 
 export default function Header(props) {
     //Đổi style cho header navbar khi roll xuống
@@ -33,6 +38,26 @@ export default function Header(props) {
         i18n.changeLanguage(value)
     }
 
+    const menu = (
+        <Menu>
+            <Menu.Item key="0">
+                <NavLink to="/home" className="nav-text text-xl text-center px-4 dark:border-transparent dark:text-violet-400 dark:border-violet-400 text-white" activeClassName="border-b-2 border-white" style={{ width: '8.5rem', padding: '0.5rem 0' }}>
+                    {t('Trang chủ')}
+                </NavLink>
+            </Menu.Item>
+            <Menu.Item key="1">
+                <NavLink to="/contact" className="nav-text text-xl text-center px-4 dark:border-transparent text-white" activeClassName="border-b-2 border-white" style={{ width: '8.5rem', padding: '0.5rem 0' }}>
+                    {t('Liên hệ')}
+                </NavLink>
+            </Menu.Item>
+            <Menu.Item key="3">
+                <NavLink to="/news" className="nav-text text-xl text-center px-4 dark:border-transparent text-white" activeClassName="border-b-2 border-white" style={{ width: '8.5rem', padding: '0.5rem 0' }}>
+                    {t('Tin tức')}
+                </NavLink>
+            </Menu.Item>
+        </Menu>
+    );
+
     const renderLogin = () => {
         if (_.isEmpty(userLogin)) {
             return <Fragment>
@@ -47,13 +72,13 @@ export default function Header(props) {
         return <Fragment>
             <button onClick={() => {
                 history.push('./profile')
-            }} className="text-xl self-center px-1 py-3 rounded btn-logged-user" style={{ width: '12rem', fontSize:'1rem' }}>{t('Xin chào')} {userLogin.taiKhoan}</button>
+            }} className="text-xl self-center px-1 py-3 rounded btn-logged-user" style={{ width: '12rem', fontSize: '1rem' }}>{t('Xin chào')} {userLogin.taiKhoan}</button>
             <button className="btn-sign-out" onClick={() => {
                 localStorage.removeItem(USER_LOGIN);
                 localStorage.removeItem(ACCESS_TOKEN);
                 history.push('/home');
                 window.location.reload();
-            }} style={{padding: '0.91rem', fontSize: '1rem' }}>{t('Đăng xuất')}</button>
+            }} style={{ padding: '0.91rem', fontSize: '1rem' }}>{t('Đăng xuất')}</button>
         </Fragment>
     }
 
@@ -61,9 +86,7 @@ export default function Header(props) {
         <header className={navbar ? "p-4 dark:bg-coolGray-800 dark:text-coolGray-100 bg-black bg-opacity-40 text-white fixed w-full z-10 active" : "p-4 bg-black bg-opacity-60 text-white fixed w-full z-10"}>
             <div className="container-fluid flex justify-between h-16 mx-auto">
                 <NavLink to="/" aria-label="Back to homepage" className="flex items-center p-2 brand-logo" style={{ width: '25%' }}>
-                    <span style={{ color: '#fff', fontSize: '50px', marginRight: '-8px' }}>H∴C</span>
-                    <img src="https://www.freeiconspng.com/uploads/video-camera-tripod-icon-12.png" alt="cyberlearn.vn" style={{ width: '10%' }} />
-                    <span style={{ color: '#fff', fontSize: '50px', marginLeft: '-8px' }}>nema</span>
+                    <span style={{ color: '#fff', fontSize: '50px', marginRight: '-8px' }}>H∴Cinema</span>
                 </NavLink>
                 <ul className="hidden space-x-3 flex flex-row justify-center lg:flex items-center nav-list" style={{ width: '50%', height: '100%' }}>
                     <li className="flex">
@@ -90,11 +113,11 @@ export default function Header(props) {
                         <Option value="en">EN</Option>
                     </Select>
                 </div>
-                <button className="p-4 lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6 dark:text-coolGray-100">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                    </svg>
-                </button>
+                <Dropdown overlay={menu} trigger={['click']} className="p-4 lg:hidden">
+                    <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+                        <MenuOutlined />
+                    </a>
+                </Dropdown>
             </div>
         </header>
     )

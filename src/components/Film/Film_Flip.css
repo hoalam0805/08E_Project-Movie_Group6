@@ -60,3 +60,11 @@
   background-color: #000;
   color: rgba(243, 150, 71);
 }
+
+
+@media screen and (min-width: 375px) and (max-width: 414px){
+  #root > div > section > div > div > div.slick-slider.center.variable-width.slick-initialized > div.slick-list > div > div.slick-slide.slick-active.slick-cloned > div > div > div {
+    
+  }
+}
+

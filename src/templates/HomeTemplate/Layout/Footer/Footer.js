@@ -3,6 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 //Hook để dịch đa ngôn ngữ
 import { useTranslation } from 'react-i18next';
+import './Footer.css'
 
 export default function Footer(props) {
 
