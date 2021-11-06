@@ -72,3 +72,12 @@
 #root > div > div > div.ant-tabs-nav > div.ant-tabs-extra-content > div > div > a > span{
   margin-left: 0 !important;
 }
+
+@media screen and (min-width: 768px) and (max-width: 979px){
+  #rc-tabs-4-panel-1 > div > div > div.col-span-9.cinema-map > div > div button {
+    width: 27px;
+    height: 27px;
+    margin: 2px;
+    font-size: 10px;
+  }
+}

@@ -1,0 +1,93 @@
+#rc-tabs-2-panel-0 > div > div.thong-tin-lich-chieu.grid.grid-cols-4.mt-5{
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap;
+    justify-content: start !important;
+}
+
+#rc-tabs-2-panel-0 > div > div.thong-tin-lich-chieu.grid.grid-cols-4.mt-5 a{
+    color: #000 !important;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+#rc-tabs-2-panel-0 > div > div.thong-tin-lich-chieu.grid.grid-cols-4.mt-5 a:hover{
+    color: #FF8200 !important;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 768px) and (max-width: 979px){
+    .grid.grid-cols-12 .col-span-5.col-start-3 .grid.grid-cols-2 div p:nth-child(2){
+        font-size: 20px;
+    }
+    
+    .grid.grid-cols-12 .col-span-5.col-start-3 .grid.grid-cols-2 div p:nth-child(3){
+        white-space:normal;
+    }
+    
+    #root > div > div > div.grid.grid-cols-12 > div.col-span-5.col-start-3 > div{
+        height: 100%;
+        width: 40rem;
+        overflow: hidden;
+        transform: translateX(-14%);
+    }
+
+    #root > div > div > div.grid.grid-cols-12 > div.col-span-4.flex.flex-col.items-center.justify-center{
+        display:none;
+    }
+
+    #root > div > div > div.flex.flex-row.justify-center > div{
+        width: 40rem;
+    }
+        
+    #rc-tabs-1-panel-1 > div > div.ant-tabs-nav{
+        width: 11rem !important;
+    }
+
+    #rc-tabs-3-panel-1 > div > div.ant-tabs-content-holder{
+        width: 5rem;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 414px){
+    .grid.grid-cols-12 .col-span-5.col-start-3 .grid.grid-cols-2 div p:nth-child(1){
+        font-size:13px;
+    }
+
+    .grid.grid-cols-12 .col-span-5.col-start-3 .grid.grid-cols-2 div p:nth-child(2){
+        font-size: 13px;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    
+    .grid.grid-cols-12 .col-span-5.col-start-3 .grid.grid-cols-2 div p:nth-child(3){
+        display: none;
+    }
+    
+    #root > div > div > div.grid.grid-cols-12 > div.col-span-5.col-start-3 > div{
+        height: 100%;
+        width: 240% !important;
+        width: fit-content;
+        overflow: hidden;
+        transform: translateX(-17%);
+    }
+
+    #root > div > div > div.grid.grid-cols-12 > div.col-span-4.flex.flex-col.items-center.justify-center{
+        display:none;
+    }
+
+    #root > div > div > div.flex.flex-row.justify-center > div{
+        width: 40rem;
+    }
+
+    #rc-tabs-3-panel-1 > div > div.ant-tabs-nav{
+        width: 11rem;
+    }
+
+    #rc-tabs-1-panel-1 > div > div.ant-tabs-nav > div.ant-tabs-nav-wrap > div p{
+        display: none !important;
+    }
+
+    #rc-tabs-3-panel-1 > div > div.ant-tabs-content-holder{}
+}

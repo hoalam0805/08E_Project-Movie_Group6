@@ -11,6 +11,8 @@ import moment from 'moment';
 import { NavLink } from 'react-router-dom';
 // import { map } from 'lodash';
 
+import './Detail.css'
+
 const { TabPane } = Tabs;
 
 export default function Detail(props) {
